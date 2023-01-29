@@ -1,5 +1,5 @@
 {
-  "name": "oazapfts",
+  "name": "@silte/oazapfts",
   "version": "4.5.2",
   "description": "OpenApi TypeScript client generator",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
   ],
   "author": "Felix Gnass",
   "license": "MIT",
-  "repository": "oazapfts/oazapfts",
+  "repository": "silte/oazapfts",
   "devDependencies": {
     "@jest/types": "^29.3.1",
     "@ts-morph/bootstrap": "^0.18.0",
