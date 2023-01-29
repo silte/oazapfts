@@ -345,7 +345,7 @@ export default class ApiGenerator {
 
       ref = this.refs[$ref] = factory.createTypeReferenceNode(alias, undefined);
 
-      const type = this.getTypeFromSchema(schema);
+      const type = this.getTypeFromSchema(schema, alias);
       this.aliases.push(
         cg.createTypeAliasDeclaration({
           modifiers: [cg.modifier.export],
@@ -492,8 +492,10 @@ export default class ApiGenerator {
     }
     if (schema.enum) {
       // enum -> enum or union
+      const enumNameSuffix = this.opts.enumNameSuffix || "Enum";
+
       return this.opts.useEnumType && name && schema.type !== "boolean"
-        ? this.getTrueEnum(schema, name)
+        ? this.getTrueEnum(schema, `${name}${enumNameSuffix}`)
         : cg.createEnumTypeNode(schema.enum);
     }
     if (schema.format == "binary") {
